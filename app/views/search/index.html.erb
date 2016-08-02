@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Search Results</h1>
+  <h2> <%= @total_stores %> Total Stores</h2>
+  <table class="price_comparison_table table table-striped">
+     <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Distance</th>
+        <th>Phone</th>
+        <th>Store Type</th>
+      </tr>
+    </thead>
+
+    <% @stores.each do |store| %>
+      <tr id="store-<%= store.store_id %>">
+        <td><%= store.name %></td>
+        <td><%= store.city %></td>
+        <td><%= store.distance %></td>
+        <td><%= store.phone %></td>
+        <td><%= store.type %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
