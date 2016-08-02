@@ -19,6 +19,14 @@
       <li>
         <a href="/orders">Orders</a>
       </li>
+      <li>
+        <%= form_for :search, method: :get, url: search_path, html: { class: "navbar-form" } do |f| %>
+          <div class="form-group search-field">
+            <%= f.text_field :query, placeholder: "Search by zip...", class: "form-control" %>
+            <%= f.submit "Search", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>
