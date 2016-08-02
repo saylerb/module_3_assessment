@@ -11,12 +11,12 @@ RSpec.describe "item record endpoint" do
 
     item1_data, item2_data = data.first, data.last
 
-    expect(item1_data.length).to eq(6)
+    expect(item1_data.length).to eq(3)
     expect(item1_data[:name]).to eq(item1.name)
     expect(item1_data[:description]).to eq(item1.description)
     expect(item1_data[:image_url]).to eq(item1.image_url)
 
-    expect(item2_data.length).to eq(6)
+    expect(item2_data.length).to eq(3)
     expect(item2_data[:name]).to eq(item2.name)
     expect(item2_data[:description]).to eq(item2.description)
     expect(item2_data[:image_url]).to eq(item2.image_url)
