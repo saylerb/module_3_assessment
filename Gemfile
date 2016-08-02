@@ -13,6 +13,11 @@ gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "minitest-rails"
 
+gem "figaro"
+gem "faraday"
+gem "responders"
+gem "active_model_serializers"
+
 group :development do
   gem "spring"
 end
@@ -20,4 +25,16 @@ end
 group :development, :test do
   gem "minitest-rails-capybara"
   gem "pry", :require => "pry"
+end
+
+group :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "factory_girl_rails"
+  gem "simplecov"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "webmock"
+  gem "vcr"
 end
