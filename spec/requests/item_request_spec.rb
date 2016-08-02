@@ -25,9 +25,14 @@ RSpec.describe "item record endpoint" do
   it "returns the information for a single item" do
     get "api/v1/items/1"
 
-    data = JSON.parse(response.body, symbolize_names: :true )
+    item1_data = JSON.parse(response.body, symbolize_names: :true )
 
     expect(response).to be_success
+
+    expect(item1_data.length).to eq(3)
+    expect(item1_data[:name]).to eq(item1.name)
+    expect(item1_data[:description]).to eq(item1.description)
+    expect(item1_data[:image_url]).to eq(item1.image_url)
   end
 end
 
