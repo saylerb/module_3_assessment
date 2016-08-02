@@ -1,38 +1,54 @@
 RSpec.describe "item record endpoint" do
-  let!(:item1) { create(:item) }
-  let!(:item2) { create(:item) }
 
-  it "returns the information for all items" do
-    get "/api/v1/items"
+  context "retrieve item information" do
 
-    data = JSON.parse(response.body, symbolize_names: :true )
+    let!(:item1) { create(:item) }
+    let!(:item2) { create(:item) }
 
-    expect(response).to be_success
+    it "returns the information for all items" do
+      get "/api/v1/items"
 
-    item1_data, item2_data = data.first, data.last
+      data = JSON.parse(response.body, symbolize_names: :true )
 
-    expect(item1_data.length).to eq(3)
-    expect(item1_data[:name]).to eq(item1.name)
-    expect(item1_data[:description]).to eq(item1.description)
-    expect(item1_data[:image_url]).to eq(item1.image_url)
+      expect(response).to be_success
 
-    expect(item2_data.length).to eq(3)
-    expect(item2_data[:name]).to eq(item2.name)
-    expect(item2_data[:description]).to eq(item2.description)
-    expect(item2_data[:image_url]).to eq(item2.image_url)
+      item1_data, item2_data = data.first, data.last
+
+      expect(item1_data.length).to eq(3)
+      expect(item1_data[:name]).to eq(item1.name)
+      expect(item1_data[:description]).to eq(item1.description)
+      expect(item1_data[:image_url]).to eq(item1.image_url)
+
+      expect(item2_data.length).to eq(3)
+      expect(item2_data[:name]).to eq(item2.name)
+      expect(item2_data[:description]).to eq(item2.description)
+      expect(item2_data[:image_url]).to eq(item2.image_url)
+    end
+
+    it "returns the information for a single item" do
+      get "api/v1/items/1"
+
+      item1_data = JSON.parse(response.body, symbolize_names: :true )
+
+      expect(response).to be_success
+
+      expect(item1_data.length).to eq(3)
+      expect(item1_data[:name]).to eq(item1.name)
+      expect(item1_data[:description]).to eq(item1.description)
+      expect(item1_data[:image_url]).to eq(item1.image_url)
+    end
   end
 
-  it "returns the information for a single item" do
-    get "api/v1/items/1"
+  context "alter item data" do
 
-    item1_data = JSON.parse(response.body, symbolize_names: :true )
+    let!(:item1) { create(:item) }
+    let!(:item2) { create(:item) }
 
-    expect(response).to be_success
-
-    expect(item1_data.length).to eq(3)
-    expect(item1_data[:name]).to eq(item1.name)
-    expect(item1_data[:description]).to eq(item1.description)
-    expect(item1_data[:image_url]).to eq(item1.image_url)
+    it "deletes an item" do
+      delete "api/v1/items/1"
+      expect(response.status).to eq(204)
+    end
   end
+
 end
 
