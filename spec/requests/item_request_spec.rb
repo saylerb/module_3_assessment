@@ -64,6 +64,13 @@ RSpec.describe "item record endpoint" do
 
       expect(response.status).to eq(201)
 
+      new_item_data = JSON.parse(response.body, symbolize_names: :true )
+
+      expect(new_item_data.length).to eq(3)
+      expect(new_item_data[:name]).to eq(new_item_params[:name])
+      expect(new_item_data[:description]).to eq(new_item_params[:description])
+      expect(new_item_data[:image_url]).to eq(new_item_params[:image_url])
+
       new_item = Item.last
 
       expect(new_item.name).to eq(new_item_params[:name])
