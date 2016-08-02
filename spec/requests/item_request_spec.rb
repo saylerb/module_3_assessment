@@ -45,8 +45,13 @@ RSpec.describe "item record endpoint" do
     let!(:item2) { create(:item) }
 
     it "deletes an item" do
+      expect(Item.where(id: item1.id, name: item1.name)).to exist
+      
       delete "api/v1/items/1"
+
       expect(response.status).to eq(204)
+
+      expect(Item.where(id: item1.id, name: item1.name)).to_not exist
     end
   end
 
