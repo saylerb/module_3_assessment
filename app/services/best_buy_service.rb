@@ -14,6 +14,16 @@ class BestBuyService
     parse(response)
   end
 
+  def get_store_hours(store_id)
+    response = connection.get do |req|
+      req.url "/v1/stores(storeId=#{store_id})"
+      req.params['apiKey'] = ENV["BEST_BUY_API_KEY"]
+      req.params['show'] = 'hours,hoursAmPm,gmtOffset,detailedHours'
+      req.params['format'] = 'json'
+    end
+    parse(response)
+  end
+
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end

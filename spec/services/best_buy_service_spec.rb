@@ -20,4 +20,12 @@ RSpec.describe BestBuyService do
       expect(store[:storeType]).to eq("Mobile")
     end
   end
+
+  it "returns the hours for a single store" do
+    VCR.use_cassette("best_buy_hours") do
+      store_hours_data = BestBuyService.new.get_store_hours("2740")
+
+      expect(store_hours_data[:stores].first[:hours]).to eq("Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-6")
+    end
+  end
 end

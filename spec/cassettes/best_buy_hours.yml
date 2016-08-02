@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bestbuy.com/v1/stores(storeId=2740)?apiKey=nysued5unnmfhft4bp5u6779&format=json&show=hours,hoursAmPm,gmtOffset,detailedHours
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 02 Aug 2016 18:02:41 GMT
+      Server:
+      - thin 1.6.1 codename Death Proof
+      X-Mashery-Responder:
+      - prod-j-worker-us-east-1d-107.mashery.com
+      Content-Length:
+      - '2484'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "from": 1,
+          "to": 1,
+          "total": 1,
+          "currentPage": 1,
+          "totalPages": 1,
+          "queryTime": "0.002",
+          "totalTime": "0.006",
+          "partial": false,
+          "canonicalUrl": "/v1/stores(storeId=2740)?show=hours,hoursAmPm,gmtOffset,detailedHours&format=json&apiKey=nysued5unnmfhft4bp5u6779",
+          "stores": [
+            {
+              "hours": "Mon: 10-9; Tue: 10-9; Wed: 10-9; Thurs: 10-9; Fri: 10-9; Sat: 10-9; Sun: 11-6",
+              "hoursAmPm": "Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 11am-6pm",
+              "gmtOffset": -7,
+              "detailedHours": [
+                {
+                  "day": "Sunday",
+                  "date": "2016-07-31",
+                  "open": "11:00",
+                  "close": "18:00"
+                },
+                {
+                  "day": "Monday",
+                  "date": "2016-08-01",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Tuesday",
+                  "date": "2016-08-02",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Wednesday",
+                  "date": "2016-08-03",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Thursday",
+                  "date": "2016-08-04",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Friday",
+                  "date": "2016-08-05",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Saturday",
+                  "date": "2016-08-06",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Sunday",
+                  "date": "2016-08-07",
+                  "open": "11:00",
+                  "close": "18:00"
+                },
+                {
+                  "day": "Monday",
+                  "date": "2016-08-08",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Tuesday",
+                  "date": "2016-08-09",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Wednesday",
+                  "date": "2016-08-10",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Thursday",
+                  "date": "2016-08-11",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Friday",
+                  "date": "2016-08-12",
+                  "open": "10:00",
+                  "close": "21:00"
+                },
+                {
+                  "day": "Saturday",
+                  "date": "2016-08-13",
+                  "open": "10:00",
+                  "close": "21:00"
+                }
+              ]
+            }
+          ]
+        }
+    http_version: 
+  recorded_at: Tue, 02 Aug 2016 18:02:41 GMT
+recorded_with: VCR 3.0.3
