@@ -53,7 +53,17 @@ RSpec.describe "item record endpoint" do
 
       expect(Item.where(id: item1.id, name: item1.name)).to_not exist
     end
-  end
 
+    it "creates an item" do
+      new_item_params = { name: "Cubby Stuffers Subscription", 
+                          description: "delicious", 
+                          image_path: "http://placehold.it/350x150"
+                        }
+
+      post "api/v1/items", { item: new_item_params }
+
+      expect(response.status).to eq(201)
+    end
+  end
 end
 
