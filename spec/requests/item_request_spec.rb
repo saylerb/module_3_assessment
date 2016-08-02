@@ -57,12 +57,18 @@ RSpec.describe "item record endpoint" do
     it "creates an item" do
       new_item_params = { name: "Cubby Stuffers Subscription", 
                           description: "delicious", 
-                          image_path: "http://placehold.it/350x150"
+                          image_url: "http://placehold.it/350x150"
                         }
 
       post "api/v1/items", { item: new_item_params }
 
       expect(response.status).to eq(201)
+
+      new_item = Item.last
+
+      expect(new_item.name).to eq(new_item_params[:name])
+      expect(new_item.description).to eq(new_item_params[:description])
+      expect(new_item.image_url).to eq(new_item_params[:image_url])
     end
   end
 end
